@@ -1,0 +1,130 @@
+\newcommand{\largebell}{\textcolor{red}{$\bigcirc$}}
+\newcommand{\smallbell}{\textcolor{red}{\textbullet}}
+\newcommand{\zazenbell}{\textcolor{ForestGreen}{$\blacklozenge$}}
+\newcommand{\han}{$\blacktriangle$}
+\newcommand{\muffle}{\textcolor{red}{$\otimes$}}
+\newcommand{\bok}{\textcolor{red}{$\oslash$}}
+\newcommand{\clank}{\textcolor{red}{$\vartriangle$}}
+\newcommand{\doshidependent}[1]{\textcolor{blue}{\emph{#1}}}
+
+\newcommand{\bellkey}{%
+{\small
+Bell Key:\quad
+\largebell\ Large Bell \quad
+\smallbell\ Small Bell \quad
+\zazenbell\ Zazen Bell \quad
+\\
+\muffle\ Muffle \quad
+\bok\ Bok \quad
+\clank\ Clank
+}
+}
+
+\newcommand{\bells}[1]{#1}
+\newcommand{\bline}[1]{\par\nopagebreak \begin{centering}#1\end{centering}}
+\newcommand{\bellbox}[3]{\parbox[#1]{#2}{\centering #3}}
+\newcommand{\jundoStartZazen}{%
+\par
+\hfill
+\bellbox{b}{4em}{{\small\em cushion}\\ \zazenbell}
+\hfill
+\bellbox{b}{4em}{{\small\em room}\\ \zazenbell}
+\hfill
+\bellbox{b}{4em}{{\small\em sitting}\\ \zazenbell}
+\hfill\null}
+\newcommand{\doshiBowingClothRolldown}{%
+\par
+\hfill%
+\bellbox{b}{4em}{{\small\em altar}\\ \smallbell}%
+\bellbox{b}{4em}{{\small\em 1st corner}\\ \smallbell}%
+\bellbox{b}{4em}{{\small\em 2nd corner}\\ \smallbell}%
+\bellbox{b}{3em}{\smallbell}%
+\bellbox{b}{2em}{\smallbell}%
+\bellbox{b}{1em}{\smallbell}%
+\smallbell%
+\smallbell%
+\smallbell%
+\dots%
+\hfill\null%
+\par
+}
+
+\newcommand{\firstBows}{
+\bline{%
+\hfill
+\largebell%
+\bellbox{b}{5ex}{{\small\em hands} \\ \muffle}%
+\hfill
+\largebell%
+\bellbox{b}{5ex}{{\small\em hands} \\ \muffle}%
+\hfill
+\largebell%
+\bellbox{b}{5ex}{{\small\em forehead} \\ \largebell}%
+\hfill\null
+}%
+}
+
+\newcommand{\smallBellRolldown}{
+\bline{%
+\hfill%
+\smallbell\hspace{5ex}%
+\smallbell\hspace{4ex}%
+\smallbell\hspace{3ex}%
+\smallbell\hspace{2ex}%
+\smallbell\hspace{1ex}%
+\smallbell\smallbell\smallbell\dots%
+\hfill\null%
+}}
+
+\newcommand{\secondBows}{%
+\bline{\hfill\largebell\hfill\largebell\hfill\bok\hfill\null}%
+}
+
+\newcommand{\takeOutChantBookBells}{%
+\bline{%
+\hfill
+\bellbox{b}{3em}{{\small\em altar} \\ \largebell}
+\hfill
+\bellbox{b}{6em}{{\small\em cushion} \\ \smallbell\hfill\smallbell}
+\hfill
+\null
+}}
+
+\newcommand{\lastBows}{
+\bline{%
+\hfill
+\smallbell%
+\hfill
+\smallbell%
+\hfill
+\smallbell
+\bellbox{b}{5ex}{{\small\em forehead} \\ \smallbell}%
+\hfill\null
+}%
+}
+
+\newcommand{\key}{%
+\fbox{
+{\bf Bells}\\
+Large Bell: \largebell\\
+Small Bell: \smallbell\\
+Zazen Bell: \zazenbell\\
+\doshidependent{Doshi Dependent}\\
+{\bf Effects}\\
+{\em (Always on Large Bell)}\\
+Muffle: \muffle\\
+Bok: \bok\\
+Clank: \clank
+}
+}
+\newcommand{\jundoBows}{%
+\bline{\hfill \largebell \hfill \largebell \hfill \largebell \hfill\null}%
+}
+
+\newcommand{\startZazenBells}{%
+\bline{\hfill\zazenbell\hfill\zazenbell\hfill\zazenbell\hfill\null}%
+}
+\newcommand{\kinhinBells}{%
+\bline{\hfill\zazenbell\hfill\zazenbell\hfill\null}
+}
+\newcommand{\beSeatedBells}{\bline{\hfill\smallbell\hfill\smallbell\hfill\null}}

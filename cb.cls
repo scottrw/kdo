@@ -1,0 +1,2 @@
+\LoadClass{book}
+\ProvidesClass{cb}
