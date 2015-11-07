@@ -3,20 +3,32 @@
 \usepackage[super]{nth}
 \usepackage{url}
 \usepackage{graphicx}
-\usepackage{newpxtext,newpxmath}
+
+\usepackage{FiraSans}
+% Use the sans serif family as the text default.
+\renewcommand{\familydefault}{\sfdefault}
+% Called after the introductory chapters to set the fontsize for the rest of the
+% document.
+\newcommand{\bodyfont}{\fontsize{14pt}{16pt}\selectfont}
 
 \include{chants}
 
 \begin{document}
 % TODO:
+% - write the section on the shape of a service
+% - replace text bullets
+% - make largebell and muffle the same diameter
 % - add instructions for tenken to come to the kokyo's side and when to leave.
+% - add instructions for the sangha to stand during the morning service
+% - add instructions for the kokyo to come to gassho during the chanting of the
+%   ancestors.
+% - fix page margins
+% - paginate
+% - proof
 % - get the pdfnump or whatever package it is that rearranges pdf pages into
 % signatures.
 %   - Aim for signatures of 2 folios.
 % - prohibit page breaks before \bline
-% - make largebell and muffle the same diameter
-% - fix page margins
-% - clearpage before heart of great perfect wisdom sutra
 
 \frontmatter
 \begin{titlepage}
@@ -40,7 +52,7 @@ License. To view a copy of this license, visit
 
 \bigskip
 
-This book was typeset with \LaTeX\ and hand bound at Kannon Do.
+This book is set in 14\,pt.\ Fira Sans with \LaTeX\ and hand bound at Kannon Do.
 \end{colophon}
 
 \begin{dedication}
@@ -154,7 +166,7 @@ bow together syncronized with the doan bowing with the sangha.
 After everyone has left the zendo, turn off the red power button on the mixer,
 place the microphones in the bags, and place them below the sound table.
 
-\fontsize{14pt}{16pt}\selectfont
+\bodyfont
 
 \chapter{Zazen with Jundo}
 \section*{At 5:30 AM}
