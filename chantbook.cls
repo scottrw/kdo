@@ -83,6 +83,7 @@
   \ifoutdent\else\hspace*{-\speaker}\fi}
 \renewcommand{\footrulewidth}{0.4pt}
 
+\newcommand{\footmark}{}
 \addtolength{\footskip}{18pt}
 \newcommand{\chant@pagestyle}{
   \fancyhead[LE]{\slshape \rightmark}
@@ -90,7 +91,7 @@
   \fancyhfoffset[L]{\speaker}
   \fancyfoot[LE,RO]{\thepage}
   \fancyfoot[C]{}
-  \fancyfoot[C]{\bellkey}
+  \fancyfoot[C]{\footmark}
 }
 
 \pagestyle{fancy}
