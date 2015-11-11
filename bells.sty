@@ -2,12 +2,17 @@
 % Bells are expensive to typeset, so we save them in boxes to speed things up.
 \newcommand{\defbell}[2]{%
   \expandafter\def\csname #1@pic\endcsname{%
-    \begin{tikzpicture}[x=6pt,y=6pt,baseline=-4pt]
+    \begin{tikzpicture}[x=1ex,y=1ex,baseline=-.5ex]
       #2
     \end{tikzpicture}%
   }%
   \expandafter\newsavebox\csname #1@box\endcsname
-  \expandafter\sbox\csname #1@box\endcsname{\expandafter\csname #1@pic\endcsname}
+  \expandafter\sbox\csname #1@box\endcsname{%
+    \begingroup%
+      \fontsize{14pt}{16pt}\selectfont
+      \expandafter\csname #1@pic\endcsname%
+    \endgroup%
+  }
   \expandafter\def\csname #1\endcsname{%
     \expandafter\usebox\csname #1@box\endcsname%
   }%
@@ -40,17 +45,23 @@
 }
 \newcommand{\doshidependent}[1]{\textcolor{blue}{\emph{#1}}}
 
-\newcommand{\bellkey}{%
-{\small
-Bell Key:\quad
-\largebell\ Large Bell \quad
-\smallbell\ Small Bell \quad
-\zazenbell\ Zazen Bell \quad
-\\
-\muffle\ Muffle \quad
-\bok\ Bok \quad
-\clank\ Clank
-}
+\AtBeginDocument{
+  \newsavebox\bellkey@box
+  \sbox\bellkey@box{
+    \parbox[t]{4in}{\small
+    \hfill Bell Key:\quad
+    \largebell@pic\ Large Bell \quad
+    \smallbell@pic\ Small Bell \quad
+    \zazenbell@pic\ Zazen Bell \quad
+    \\
+    \centering \muffle@pic\ Muffle \quad
+    \bok@pic\ Bok \quad
+    \clank@pic\ Clank
+    }
+  }
+  \newcommand{\bellkey}{%
+    \usebox\bellkey@box
+  }
 }
 
 \newcommand{\bells}[1]{#1}
