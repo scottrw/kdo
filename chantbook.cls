@@ -81,7 +81,6 @@
   \ifodd\c@page\hspace*{\speaker}%
   \else\hspace*{-\speaker}\fi
   \ifoutdent\else\hspace*{-\speaker}\fi}
-\def\chant@footer{\bellkey}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \addtolength{\footskip}{18pt}
