@@ -4,13 +4,13 @@
 \LoadClass[12pt,openany]{book}
 % \RequirePackage{fullpage}
 \RequirePackage[compact,clearempty]{titlesec}
-\RequirePackage{amssymb}
-\RequirePackage{bells}
+% \RequirePackage{amssymb}
 \RequirePackage{parskip}
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage{multicol}
 \RequirePackage{fancyhdr}
 \RequirePackage{tikz}
+\RequirePackage{bells}
 
 \newlength{\speaker}\setlength{\speaker}{4em}
 \setlength{\columnsep}{1.5\speaker}

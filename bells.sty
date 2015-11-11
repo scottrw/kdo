@@ -1,10 +1,43 @@
-\newcommand{\largebell}{\textcolor{red}{$\bigcirc$}}
-\newcommand{\smallbell}{\textcolor{red}{\textbullet}}
-\newcommand{\zazenbell}{\textcolor{ForestGreen}{$\blacklozenge$}}
-\newcommand{\han}{$\blacktriangle$}
-\newcommand{\muffle}{\textcolor{red}{$\otimes$}}
-\newcommand{\bok}{\textcolor{red}{$\oslash$}}
-\newcommand{\clank}{\textcolor{red}{$\vartriangle$}}
+\RequirePackage{tikz}
+% Bells are expensive to typeset, so we save them in boxes to speed things up.
+\newcommand{\defbell}[2]{%
+  \expandafter\def\csname #1@pic\endcsname{%
+    \begin{tikzpicture}[x=6pt,y=6pt,baseline=-4pt]
+      #2
+    \end{tikzpicture}%
+  }%
+  \expandafter\newsavebox\csname #1@box\endcsname
+  \expandafter\sbox\csname #1@box\endcsname{\expandafter\csname #1@pic\endcsname}
+  \expandafter\def\csname #1\endcsname{%
+    \expandafter\usebox\csname #1@box\endcsname%
+  }%
+}
+
+\defbell{largebell}{
+  \draw[red] (0,0) circle (1);
+}
+
+\defbell{smallbell}{
+  \draw[red,fill=red] (0,0) circle (.5);
+}
+\defbell{zazenbell}{
+  \fill[ForestGreen,fill=ForestGreen] (-1,0) -- (0,-1) -- (1,0) -- (0,1) --
+    cycle;
+}
+\defbell{muffle}{
+  \draw[red] (0,0) circle (1);
+  \draw[red] (45:1) -- (45+180:1);
+  \draw[red] (45+90:1) -- (45+180+90:1);
+}
+\defbell{bok}{
+  \draw[red] (0,0) circle (1);
+  \draw[red] (-1,-1) -- (1,1);
+}
+\defbell{clank}{
+  \begin{scope}[shift={(0,-1pt)}]
+    \draw[red] (90:1) -- (90+120:1) -- (90+120*2:1) -- cycle;
+  \end{scope}
+}
 \newcommand{\doshidependent}[1]{\textcolor{blue}{\emph{#1}}}
 
 \newcommand{\bellkey}{%
