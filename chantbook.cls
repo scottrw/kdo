@@ -1,3 +1,4 @@
+% vim: ft=tex
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{chantbook}[2015/08/23 Kannon Do Chantbook]
 \LoadClass[12pt,openany]{book}
