@@ -122,17 +122,13 @@
 \newenvironment{chant}[1]{%
 \chanttitle{#1}
 \par
-\begin{outdent}
-\begin{multicols}{2}}{%
-\end{multicols}
+\begin{outdent}}{%
 \par
 \end{outdent}
 }
 \newenvironment{chant*}{%
 \par
-\begin{outdent}
-\begin{multicols}{2}}{
-\end{multicols}
+\begin{outdent}}{
 \par
 \end{outdent}}
 
