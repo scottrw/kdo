@@ -1,0 +1,67 @@
+\documentclass{minimal}
+
+\usepackage{FiraSans}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[paperwidth=5.5in,paperheight=4in,margin=.5in]{geometry}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10pt plus 2pt}
+\def\Large{\fontsize{16pt}{20pt}\selectfont}
+
+% http://tex.stackexchange.com/questions/239470/hrule-after-descenders
+\newdimen\tmpdim
+\def\myhrule{\par
+  \tmpdim=\prevdepth
+  \kern\dimexpr 4pt-\prevdepth
+  \hrule
+  \prevdepth=\tmpdim
+  \kern\dimexpr \prevdepth-4pt-.4pt\relax
+}
+
+\def\section#1{%
+  \vskip 1cm
+  {#1\centering\par}
+  \myhrule
+  \par
+}
+
+\begin{document}
+\fontsize{12pt}{14pt}\selectfont
+
+\section{Sutra Opening Verse}
+\begin{center}
+An unsurpassed, penetrating and perfect dharma is rarely met with even in a
+hundred thousand million kalpas.
+
+Having it to see and listen to, to remember and accept,\\
+I vow to taste the truth of the Tathagata's words.
+\end{center}
+
+\section{Four Vows}
+\begin{center}
+Beings are numberless; I vow to save them.\\
+Delusions are inexhaustible; I vow to end them.\\
+Dharma gates are boundless; I vow to enter them.\\
+The Buddha way is unsurpassed; I vow to realize it.
+\end{center}
+
+\newpage
+
+\section{Robe Chant}
+\def\robechant{%
+\begin{center}
+Dai sai geda puku\\
+Mu so fuku den e\\
+Hi by nyo rai kyo\\
+Ko do sho shu jo
+\end{center}}
+\parbox[b]{.5\textwidth}{\robechant}
+\parbox[b]{.5\textwidth}{\robechant}
+\begin{center}
+  Great robe of liberation\\
+  Field far beyond form and emptiness\\
+  Wearing the Tathagata's teaching\\
+  Saving all beings
+\end{center}
+\end{document}
