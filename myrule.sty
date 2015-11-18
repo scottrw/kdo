@@ -1,0 +1,9 @@
+% http://tex.stackexchange.com/questions/239470/hrule-after-descenders
+\newdimen\tmpdim
+\def\myhrule{\par
+  \tmpdim=\prevdepth
+  \kern\dimexpr 4pt-\prevdepth
+  \hrule
+  \prevdepth=\tmpdim
+  \kern\dimexpr \prevdepth-4pt-.4pt\relax
+}

@@ -1,0 +1,16 @@
+\documentclass[twoside,final]{article}
+\usepackage{pdfpages}
+\usepackage[paperwidth=17in,paperheight=11in,margin=0pt]{geometry}
+\usepackage{everyshi}
+\setlength{\parindent}{0pt}
+
+% pdfpages assumes long-edge binding. We prefer short-edge binding, so we rotate
+% all the even pages.
+\makeatletter
+\EveryShipout{\ifodd\c@page\pdfpageattr{/Rotate 180}\else\fi}%
+\makeatother
+
+\begin{document}
+% signature: 8 pages = 4 leaves = 2 folios
+\includepdf[pages=-,noautoscale,signature=8,nup=2x1]{chant-book}
+\end{document}
