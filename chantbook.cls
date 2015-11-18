@@ -10,6 +10,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{tikz}
 \RequirePackage{bells}
+\RequirePackage{thumb}
 
 \newlength{\speaker}\setlength{\speaker}{5em}
 \newlength{\marginadj}\setlength{\marginadj}{0.5in}
@@ -36,35 +37,6 @@
   {}
 \titlespacing{\section}{0pt}{0pt}{0pt}
 
-% thumb position: 1in + \hoffset + \oddsidemargin + \marginparsep + \textwidth
-% Thumb tabs
-\newif\ifthumb@enabled
-\newlength{\thumb@skip}\setlength{\thumb@skip}{0pt}
-\newlength{\thumb@voff}\setlength{\thumb@voff}{2in}
-\gdef\thumb@title{}  % contains the most recent thumbtab title
-\newcommand{\thumb}[1]{%
-  \thumb@enabledtrue
-  \global\def\thumb@title{#1}%
-  \addtolength{\thumb@voff}{\thumb@skip}%
-  \settowidth\thumb@skip{#1}
-  \addtolength\thumb@skip{1em}
-}
-\newcommand{\thumbfmt}[1]{{\bfseries\sffamily #1}}
-\newlength{\thumb@hoff}  % distance from right edge of text to right edge of page.
-\newcommand{\thumb@mark}{%
-  \ifthumb@enabled%
-  \hbox to 0pt{\raisebox{-\thumb@voff}[0pt][0pt]{%
-    \hbox to \thumb@hoff{%
-      \hfill
-      \begin{tikzpicture}
-        \draw (0,0)
-          node[rotate=-90,above=.5ex,anchor=west] {\thumbfmt{\thumb@title}};
-      \end{tikzpicture}
-    }%
-  }}%
-  \fi%
-}
-
 \newif\ifoutdent
 \newenvironment{outdent}{%
 \outdenttrue
@@ -86,7 +58,7 @@
 \addtolength{\footskip}{18pt}
 \newcommand{\chant@pagestyle}{
   \fancyhead[LE]{\slshape \rightmark}
-  \fancyhead[RO]{{\slshape \rightmark}\thumb@mark}
+  \fancyhead[RO]{{\slshape \rightmark}\thumbmark}
   \fancyhfoffset[L]{\speaker}
   \fancyfoot[LE,RO]{\thepage}
   \fancyfoot[C]{}

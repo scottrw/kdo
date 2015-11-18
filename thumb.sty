@@ -1,0 +1,51 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{thumb}[2015/11/17 Folder-style thumbtabs]
+
+% thumb position: 1in + \hoffset + \oddsidemargin + \marginparsep + \textwidth
+% Thumb tabs
+
+% Set by \thumb on its first call. Thumb tabs are only printed after the first
+% call to \thumb.
+\newif\ifthumb@enabled
+
+% Width to skip when the next thumb tab is defined.
+\newlength{\thumb@skip}\setlength{\thumb@skip}{0pt}
+
+% Current vertical offset for this thumb tab. Incremented by \thumb@skip when a
+% new thumb tab is defined with \thumb.
+\newlength{\thumb@voff}\setlength{\thumb@voff}{2in}
+
+% Distance from right edge of text to right edge of page. Configure this in your
+% preamble. This package does not modify this value and refers to it on each
+% page.
+\newlength{\thumb@hoff}
+
+% Contains the most recent thumbtab title.
+\gdef\thumb@title{}
+
+% Primary user command. \thumb{text} sets the current thumbtab text.
+\newcommand{\thumb}[1]{%
+  \thumb@enabledtrue
+  \global\def\thumb@title{#1}%
+  \addtolength{\thumb@voff}{\thumb@skip}%
+  \settowidth\thumb@skip{#1}
+  \addtolength\thumb@skip{1em}
+}
+
+% Redefinable command for formatting the current thumbtab name.
+\newcommand{\thumbfmt}[1]{{\bfseries\sffamily #1}}
+
+% User-visible command. Call from fancyhead.
+\newcommand{\thumbmark}{%
+  \ifthumb@enabled%
+  \hbox to 0pt{\raisebox{-\thumb@voff}[0pt][0pt]{%
+    \hbox to \thumb@hoff{%
+      \hfill
+      \begin{tikzpicture}
+        \draw (0,0)
+          node[rotate=-90,above=.5ex,anchor=west] {\thumbfmt{\thumb@title}};
+      \end{tikzpicture}
+    }%
+  }}%
+  \fi%
+}
