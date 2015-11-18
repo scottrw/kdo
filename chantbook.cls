@@ -11,8 +11,7 @@
 \RequirePackage{tikz}
 \RequirePackage{bells}
 
-\newlength{\speaker}\setlength{\speaker}{4em}
-\setlength{\columnsep}{1.5\speaker}
+\newlength{\speaker}\setlength{\speaker}{5em}
 \newlength{\marginadj}\setlength{\marginadj}{0.5in}
 
 \addtolength{\evensidemargin}{-\marginadj}
