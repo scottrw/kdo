@@ -40,15 +40,17 @@
 % thumb position: 1in + \hoffset + \oddsidemargin + \marginparsep + \textwidth
 % Thumb tabs
 \newif\ifthumb@enabled
-\newlength{\thumb@skip}\setlength{\thumb@skip}{7em}
-\newlength{\thumb@voff}\setlength{\thumb@voff}{1in}
+\newlength{\thumb@skip}\setlength{\thumb@skip}{0pt}
+\newlength{\thumb@voff}\setlength{\thumb@voff}{2in}
 \gdef\thumb@title{}  % contains the most recent thumbtab title
 \newcommand{\thumb}[1]{%
   \thumb@enabledtrue
   \global\def\thumb@title{#1}%
   \addtolength{\thumb@voff}{\thumb@skip}%
+  \settowidth\thumb@skip{#1}
+  \addtolength\thumb@skip{1em}
 }
-\newcommand{\thumbfmt}[1]{{\bf\sffamily #1}}
+\newcommand{\thumbfmt}[1]{{\bfseries\sffamily #1}}
 \newlength{\thumb@hoff}  % distance from right edge of text to right edge of page.
 \newcommand{\thumb@mark}{%
   \ifthumb@enabled%
@@ -56,10 +58,8 @@
     \hbox to \thumb@hoff{%
       \hfill
       \begin{tikzpicture}
-        \draw[black,fill=black] (0,0) circle (3em);
-	\draw[black,fill=black] (0,-3em) rectangle (1.5,3em);
-        \draw[color=white] (0,0)
-          node[rotate=90,above=.5ex] {\thumbfmt{\thumb@title}};
+        \draw (0,0)
+          node[rotate=-90,above=.5ex,anchor=west] {\thumbfmt{\thumb@title}};
       \end{tikzpicture}
     }%
   }}%
@@ -137,7 +137,7 @@
 \addtolength{\thumb@hoff}{-\oddsidemargin}
 \addtolength{\thumb@hoff}{-\marginparsep}
 \addtolength{\thumb@hoff}{-\textwidth}
-\addtolength{\thumb@hoff}{3em}
+\addtolength{\thumb@hoff}{-1.5em}
 
 %% After this point, no page layout changes should be made, or the thumbtabs
 %will get screwed up.
