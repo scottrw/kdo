@@ -2,12 +2,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{chantbook}[2015/08/23 Kannon Do Chantbook]
 \LoadClass[12pt,openany]{book}
-% \RequirePackage{fullpage}
+\RequirePackage[includehead,includefoot,top=.75in,bottom=1in,
+                inner=1in,outer=1.5in]{geometry}
 \RequirePackage[compact,clearempty]{titlesec}
-% \RequirePackage{amssymb}
 \RequirePackage{parskip}
 \RequirePackage[usenames,dvipsnames]{xcolor}
-\RequirePackage{multicol}
 \RequirePackage{fancyhdr}
 \RequirePackage{tikz}
 \RequirePackage{bells}
