@@ -15,43 +15,41 @@
 \newlength{\speaker}\setlength{\speaker}{5em}
 \newlength{\marginadj}\setlength{\marginadj}{0.5in}
 
-\addtolength{\evensidemargin}{-\marginadj}
-\addtolength{\oddsidemargin}{-\marginadj}
-\addtolength{\textwidth}{2\marginadj}
-
-\addtolength{\evensidemargin}{\speaker}
-\addtolength{\oddsidemargin}{\speaker}
-\addtolength{\textwidth}{-\speaker}
-
 \titleformat{\part}{\Huge\bf\centering\thispagestyle{empty}}{}{0em}{}
 \titleformat{\chapter}
   {\huge\bf\raggedright}
   {}
-  {-\speaker}
+  {}
   {}
 \titlespacing*{\chapter}{0pt}{-30pt}{0pt}
 \titleformat{\section}
   {\Large\bf\raggedright}
   {}
-  {-\speaker}
+  {}
   {}
 \titlespacing{\section}{0pt}{0pt}{0pt}
 
-\newif\ifoutdent
 \newenvironment{outdent}{%
-\outdenttrue
-\global\leftskip-\speaker}%
-{\global\leftskip0in
-\outdentfalse}
+  \addtolength\leftskip{-\speaker}%
+}{%
+  \addtolength\leftskip{\speaker}%
+}
+
+% User-visible, for setting up fonts for the services
+\newcommand{\servicefont}{\fontsize{14pt}{16pt}\selectfont}
+
+\newenvironment{services}{%
+  \servicefont
+  \addtolength\leftskip{\speaker}%
+}{%
+  \addtolength\leftskip{-\speaker}%
+}
 
 % In this class, the body text is set in from the margin by \speaker most of
 % the time. This means the footer will be centered relative to the body of the
 % text, but not centered on the page. \footeradj adds some space to make up for
 % this.
-\def\footadj{%
-  \ifodd\c@page\hspace*{\speaker}%
-  \else\hspace*{-\speaker}\fi
-  \ifoutdent\else\hspace*{-\speaker}\fi}
+\def\footadj{}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \newcommand{\footmark}{}
@@ -59,7 +57,6 @@
 \newcommand{\chant@pagestyle}{
   \fancyhead[LE]{\slshape \rightmark}
   \fancyhead[RO]{{\slshape \rightmark}\thumbmark}
-  \fancyhfoffset[L]{\speaker}
   \fancyfoot[LE,RO]{\thepage}
   \fancyfoot[C]{}
   \fancyfoot[C]{\footmark}
@@ -72,7 +69,6 @@
 \renewcommand{\chaptermark}[1]{\markboth{}{#1}}
 \renewcommand{\sectionmark}[1]{}
 
-% \newcommand{\speak}[1]{\par\makebox[0em][r]{\makebox[\speaker][l]{#1}}}
 \newcommand{\speakerstyle}{\em}
 \newcommand{\speak}[1]{\par\makebox[0em][r]{{\speakerstyle #1:\hspace*{5pt}}}}
 \newcommand{\doan}{\speak{Doan}}
@@ -87,7 +83,6 @@
 }
 
 \newcommand{\bigspace}{\hspace*{1em}}
-
 
 \newenvironment{chant}[1]{%
 \chanttitle{#1}
@@ -168,9 +163,7 @@
 % MakeUppercase is hardcoded into the definition of \tableofcontents, so this
 % is the easiest way to get it out.
 \renewcommand{\tableofcontents}{
-\begin{outdent}
 \chapter*{Contents}
 \markright{Contents}
 \@starttoc{toc}
-\end{outdent}
 }
