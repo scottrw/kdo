@@ -11,6 +11,8 @@
 \RequirePackage{tikz}
 \RequirePackage{bells}
 \RequirePackage{thumb}
+\hyphenation{Dia-o-sho Fu-da-mit-ta A-n-an-da Shi-ki But-su Bi-sh-a-fu
+Ku-r-u-s-on Kan-yu To-ku-chu}
 
 \newlength{\speaker}\setlength{\speaker}{5em}
 \newlength{\marginadj}\setlength{\marginadj}{0.5in}

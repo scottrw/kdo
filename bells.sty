@@ -65,7 +65,7 @@
 }
 
 \newcommand{\bells}[1]{#1}
-\newcommand{\bline}[1]{\par\nopagebreak \begin{centering}#1\end{centering}}
+\newcommand{\bline}[1]{\par#1\par}
 \newcommand{\bellbox}[3]{\parbox[#1]{#2}{\centering #3}}
 \newcommand{\jundoStartZazen}{%
 \par
@@ -147,6 +147,14 @@
 }%
 }
 
+\newcommand{\beSeatedBells}{\bline{%
+    \hfill\bellbox{b}{5ex}{{\small\em altar} \\ \smallbell}%
+    \hfill\bellbox{b}{5ex}{{\small\em cushion} \\ \smallbell}%
+    \hfill\bellbox{b}{5ex}{{\small\em room} \\ \smallbell}%
+    \hspace{.5em}\bellbox{b}{5ex}{{\small\em 2\,sec} \\ \smallbell}%
+    \hfill\null
+}}
+
 \newcommand{\key}{%
 \fbox{
 {\bf Bells}\\
@@ -171,4 +179,3 @@ Clank: \clank
 \newcommand{\kinhinBells}{%
 \bline{\hfill\zazenbell\hfill\zazenbell\hfill\null}
 }
-\newcommand{\beSeatedBells}{\bline{\hfill\smallbell\hfill\smallbell\hfill\null}}
