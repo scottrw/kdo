@@ -12,10 +12,14 @@
 \RequirePackage{bells}
 \RequirePackage{thumb}
 \hyphenation{Dia-o-sho Fu-da-mit-ta A-n-an-da Shi-ki But-su Bi-sh-a-fu
-Ku-r-u-s-on Kan-yu To-ku-chu}
+Ku-r-u-s-on Kan-yu To-ku-chu Bash-a-shi-ta}
 
 \newlength{\speaker}\setlength{\speaker}{5em}
 \newlength{\marginadj}\setlength{\marginadj}{0.5in}
+
+\usepackage{FiraSans}
+% Use the sans serif family as the text default.
+\renewcommand{\familydefault}{\sfdefault}
 
 \titleformat{\part}{\Huge\bf\centering\thispagestyle{empty}}{}{0em}{}
 \titleformat{\chapter}
@@ -33,12 +37,14 @@ Ku-r-u-s-on Kan-yu To-ku-chu}
 
 \newenvironment{outdent}{%
   \addtolength\leftskip{-\speaker}%
+  \par\nobreak\nopagebreak
 }{%
+  \par
   \addtolength\leftskip{\speaker}%
 }
 
 % User-visible, for setting up fonts for the services
-\newcommand{\servicefont}{\fontsize{14pt}{16pt}\selectfont}
+\newcommand{\servicefont}{\fontsize{14pt}{16pt plus 2pt}\selectfont}
 
 \newenvironment{services}{%
   \servicefont
@@ -72,7 +78,10 @@ Ku-r-u-s-on Kan-yu To-ku-chu}
 \renewcommand{\sectionmark}[1]{}
 
 \newcommand{\speakerstyle}{\em}
-\newcommand{\speak}[1]{\par\makebox[0em][r]{{\speakerstyle #1:\hspace*{5pt}}}}
+\newcommand{\speak}[1]{%
+  \par\pagebreak[2]
+  \makebox[0em][r]{%
+  \makebox[\speaker][l]{\speakerstyle #1:\hspace*{5pt}}}}
 \newcommand{\doan}{\speak{Doan}}
 \newcommand{\doshi}{\speak{Doshi}}
 \newcommand{\sangha}{\speak{Sangha}}
@@ -86,18 +95,13 @@ Ku-r-u-s-on Kan-yu To-ku-chu}
 
 \newcommand{\bigspace}{\hspace*{1em}}
 
-\newenvironment{chant}[1]{%
-\chanttitle{#1}
-\par
-\begin{outdent}}{%
-\par
-\end{outdent}
+\newenvironment{chanttext}{
+  \par\nopagebreak\nobreak
+  \begin{outdent}
+}{
+  \par
+  \end{outdent}
 }
-\newenvironment{chant*}{%
-\par
-\begin{outdent}}{
-\par
-\end{outdent}}
 
 \setlength{\thumb@hoff}{\paperwidth}
 \addtolength{\thumb@hoff}{-1in}
