@@ -1,0 +1,17 @@
+% vim: ft=tex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{padpages}[2015/11/24 Pad Pages - pad document to a multiple of
+N pages]
+\RequirePackage{calc}
+\RequirePackage{pageslts}
+\RequirePackage{forloop}
+
+\newcounter{pad@tmp}
+\newcounter{pad@cur}
+
+% \padpages{<N>} Pads to a multiple of N pages
+\newcommand{\padpages}[1]{%
+  \clearpage\null\pagestyle{empty}
+  \setcounter{pad@tmp}{\c@CurrentPage - \c@CurrentPage / #1 * #1}
+  \forloop{pad@cur}{0}{\value{pad@cur} < \value{pad@tmp}}{\clearpage\par\null}
+}
