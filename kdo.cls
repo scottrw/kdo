@@ -1,9 +1,9 @@
 % vim: ft=tex
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{chantbook}[2015/08/23 Kannon Do Chantbook]
+\ProvidesClass{kdo}[2015/08/23 Kannon Do Chantbook]
 \LoadClass[12pt,openany]{book}
 \RequirePackage[includehead,includefoot,top=.75in,bottom=1in,
-                inner=1in,outer=1.5in]{geometry}
+                inner=1in,outer=1in]{geometry}
 \RequirePackage[compact,clearempty]{titlesec}
 \RequirePackage{parskip}
 \RequirePackage[usenames,dvipsnames]{xcolor}
@@ -11,11 +11,13 @@
 \RequirePackage{tikz}
 \RequirePackage{bells}
 \RequirePackage{thumb}
-\hyphenation{Dia-o-sho Fu-da-mit-ta A-n-an-da Shi-ki But-su Bi-sh-a-fu
-Ku-r-u-s-on Kan-yu To-ku-chu Bash-a-shi-ta}
+\hyphenation{Dai-o-sho Fu-da-mit-ta A-n-an-da Shi-ki But-su Bi-sh-a-fu
+Ku-r-u-s-on Kan-yu To-ku-chu Bash-a-shi-ta Uba-ki-ku-ta Shi-shi-bo-dai Vi-sa-kha
+Ach-ar-ya Gya-ku-shi-tsu Sho-gaku Myo-sho Ka-ku-ro-ku-na}
 
-\newlength{\speaker}\setlength{\speaker}{5em}
-\newlength{\marginadj}\setlength{\marginadj}{0.5in}
+\newlength\speaker\setlength{\speaker}{5em}
+\newlength\marginadj\setlength{\marginadj}{0.5in}
+\setlength\headheight{14.5pt}
 
 \usepackage{FiraSans}
 % Use the sans serif family as the text default.

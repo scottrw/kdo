@@ -2,8 +2,10 @@
 \usepackage{nth}
 \usepackage{url}
 \usepackage{chants}
+\usepackage{multicol}
 
-\renewenvironment{chant}[1]{\section{#1}\par}{\par}
+\renewenvironment{chanttext}{}{}
+\renewcommand{\chanttitle}[1]{\pagebreak[3]\section{#1}}
 
 \renewcommand\largebell\relax
 \renewcommand\smallbell\relax
@@ -11,11 +13,18 @@
 \renewcommand\clank\relax
 \renewcommand\muffle\relax
 \renewcommand\smallBellRolldown\relax
-\renewcommand\bat\relax
+\renewcommand\bat[1]\relax
 \renewcommand\doshidependent[1]{#1}
 
 \begin{document}
 \frontmatter
+\begin{titlepage}
+  \Huge\bf
+Kannon Do Chants
+\end{titlepage}
+
+\cleardoublepage\thispagestyle{empty}\null\cleardoublepage\frontmatter
+
 \begin{titlepage}
   \Huge\bf
 Kannon Do Chants
@@ -54,14 +63,18 @@ Before the rain stops, we hear a bird.
 \tableofcontents
 
 \mainmatter
+\fontsize{14pt}{16pt plus 2pt}
 
+\part{Wednesday Night}
 \chapter{Wednesday Night}
 \thumb{Wednesday Night}
 \heartOfGreatPerfectWisdomSutra
 \allBuddhas
 \sutraOpeningVerse
+\pagebreak
 \fourVows
 
+\part{First and Third Saturdays}
 \chapter{First and Third Saturdays}
 \thumb{\nth{1} \& \nth{3} Saturday}
 \paliRefuges
@@ -70,8 +83,10 @@ Before the rain stops, we hear a bird.
 \songOfTheJewelMirrorSamadhi
 \ancestorsShort
 \femaleAncestors
+\pagebreak
 \jiHoSan
 
+\part{Second and Fifth Saturdays}
 \chapter{Second and Fifth Saturdays}
 \thumb{\nth{2} \& \nth{5} Saturday}
 \paliRefuges
@@ -81,6 +96,7 @@ Before the rain stops, we hear a bird.
 \ancestorsLong
 \jiHoSan
 
+\part{Fourth Saturday}
 \chapter{Fourth Saturday}
 \thumb{\nth{4} Saturday}
 \paliRefuges
@@ -90,6 +106,7 @@ Before the rain stops, we hear a bird.
 \enmeiJukkuKannonGyo
 \jiHoSan
 
+\part{Other Chants}
 \chapter{Other Chants}
 % TODO:
 % - Universally recommended instructions for Zazen
