@@ -1,0 +1,34 @@
+% vim: ft=tex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bookdesign}[2015/11/30 Book design elements]
+
+\newenvironment{colophon}{%
+\thispagestyle{empty}
+\topskip0pt
+\vspace*{\fill}
+}{
+\newpage
+}
+
+
+\newenvironment{dedication}{%
+  \thispagestyle{empty}
+  \vspace{1in}
+  \begingroup
+  \begin{center}
+}{%
+  \end{center}
+  \endgroup
+  \newpage
+}
+
+\renewenvironment{titlepage}{%
+\thispagestyle{empty}
+\topskip0pt
+\vspace*{\fill}
+\begin{center}
+}{
+\end{center}
+\vspace*{\fill}
+\newpage
+}

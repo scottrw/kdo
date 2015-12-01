@@ -2,6 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{kdo}[2015/08/23 Kannon Do Chantbook]
 \LoadClass[12pt,openany]{book}
+\RequirePackage{bookdesign}
 \RequirePackage[includehead,includefoot,top=.75in,bottom=1in,
                 inner=1in,outer=1in]{geometry}
 \RequirePackage[compact,clearempty]{titlesec}
@@ -115,38 +116,6 @@ Ach-ar-ya Gya-ku-shi-tsu Sho-gaku Myo-sho Ka-ku-ro-ku-na}
 
 %% After this point, no page layout changes should be made, or the thumbtabs
 %will get screwed up.
-
-\renewenvironment{titlepage}{%
-\thispagestyle{empty}
-\topskip0pt
-\vspace*{\fill}
-\begin{center}
-}{
-\end{center}
-\vspace*{\fill}
-\newpage
-}
-
-\newenvironment{colophon}{%
-\thispagestyle{empty}
-\topskip0pt
-\vspace*{\fill}
-}{
-\newpage
-}
-
-\newenvironment{dedication}{%
-  \thispagestyle{empty}
-  \vspace{1in}
-  \begingroup
-  \fontsize{17pt}{21pt}\selectfont\em
-  \setlength{\parskip}{18pt plus 2pt}
-  \begin{center}
-}{%
-  \end{center}
-  \endgroup
-  \newpage
-}
 
 % We just define our own version of \part, since the LaTeX version appears to be
 % hopelessly hard to customize.
