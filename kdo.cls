@@ -3,18 +3,19 @@
 \ProvidesClass{kdo}[2015/08/23 Kannon Do Chantbook]
 \LoadClass[12pt,openany]{book}
 \RequirePackage{bookdesign}
-\RequirePackage[includehead,includefoot,top=.75in,bottom=1in,
-                inner=1in,outer=1in]{geometry}
+\RequirePackage[includehead,includefoot,top=.25in,bottom=1in,
+                inner=0.5in,outer=0.5in]{geometry}
 \RequirePackage[compact,clearempty]{titlesec}
 \RequirePackage{parskip}
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage{fancyhdr}
 \RequirePackage{tikz}
 \RequirePackage{bells}
-\RequirePackage{thumb}
 \hyphenation{Dai-o-sho Fu-da-mit-ta A-n-an-da Shi-ki But-su Bi-sh-a-fu
 Ku-r-u-s-on Kan-yu To-ku-chu Bash-a-shi-ta Uba-ki-ku-ta Shi-shi-bo-dai Vi-sa-kha
-Ach-ar-ya Gya-ku-shi-tsu Sho-gaku Myo-sho Ka-ku-ro-ku-na}
+Ach-ar-ya Gya-ku-shi-tsu Sho-gaku Myo-sho Ka-ku-ro-ku-na
+Sog-ya-nan-dai Cho-ko-ku}
+
 
 \newlength\speaker\setlength{\speaker}{5em}
 \newlength\marginadj\setlength{\marginadj}{0.5in}
@@ -47,7 +48,7 @@ Ach-ar-ya Gya-ku-shi-tsu Sho-gaku Myo-sho Ka-ku-ro-ku-na}
 }
 
 % User-visible, for setting up fonts for the services
-\newcommand{\servicefont}{\fontsize{14pt}{16pt plus 2pt}\selectfont}
+\newcommand{\servicefont}{\fontsize{14pt}{17pt plus 2pt}\selectfont}
 
 \newenvironment{services}{%
   \servicefont
@@ -56,25 +57,21 @@ Ach-ar-ya Gya-ku-shi-tsu Sho-gaku Myo-sho Ka-ku-ro-ku-na}
   \addtolength\leftskip{-\speaker}%
 }
 
-% In this class, the body text is set in from the margin by \speaker most of
-% the time. This means the footer will be centered relative to the body of the
-% text, but not centered on the page. \footeradj adds some space to make up for
-% this.
-\def\footadj{}
-\renewcommand{\footrulewidth}{0.4pt}
-
 \newcommand{\footmark}{}
 \addtolength{\footskip}{18pt}
 \newcommand{\chant@pagestyle}{
   \fancyhead[LE]{\slshape \rightmark}
-  \fancyhead[RO]{{\slshape \rightmark}\thumbmark}
+  \fancyhead[RO]{{\slshape \rightmark}}
   \fancyfoot[LE,RO]{\thepage}
   \fancyfoot[C]{}
   \fancyfoot[C]{\footmark}
 }
 
 \pagestyle{fancy}
+\addtolength{\headsep}{5pt}
 \fancypagestyle{plain}{\chant@pagestyle}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 \chant@pagestyle
 
 \renewcommand{\chaptermark}[1]{\markboth{}{#1}}
@@ -105,17 +102,6 @@ Ach-ar-ya Gya-ku-shi-tsu Sho-gaku Myo-sho Ka-ku-ro-ku-na}
   \par
   \end{outdent}
 }
-
-\setlength{\thumb@hoff}{\paperwidth}
-\addtolength{\thumb@hoff}{-1in}
-\addtolength{\thumb@hoff}{-\hoffset}
-\addtolength{\thumb@hoff}{-\oddsidemargin}
-\addtolength{\thumb@hoff}{-\marginparsep}
-\addtolength{\thumb@hoff}{-\textwidth}
-\addtolength{\thumb@hoff}{-1.5em}
-
-%% After this point, no page layout changes should be made, or the thumbtabs
-%will get screwed up.
 
 % We just define our own version of \part, since the LaTeX version appears to be
 % hopelessly hard to customize.
